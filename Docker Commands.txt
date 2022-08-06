@@ -9,5 +9,12 @@ hello world
 $ docker run -it ubuntu
 
 docker run -d jpetazzo/clock
+docker run hello-world
+docker stop container_name
+docker kill container_name
 
+docker container run --name test -p 8400:80
+docker pull busybox
+docker run --name=new1 -d -p 8400:80 engineerbaz/htmlfile:2
+docker run --name=new2 -d -p 8500:80 engineerbaz/htmlfile:5
 
