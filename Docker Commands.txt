@@ -1,0 +1,13 @@
+docker version
+docker version --format '{{.Server.Version}}'
+docker version --format '{{json .}}'
+usermod -a -G docker non_priv_user
+docker run hello-world
+
+docker run busybox echo hello world
+hello world
+$ docker run -it ubuntu
+
+docker run -d jpetazzo/clock
+
+
