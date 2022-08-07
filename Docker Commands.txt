@@ -42,3 +42,5 @@ docker run --name some-nginx  -d -p 8001:80 nginx
 
 docker pull mysql
 docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
+
+
