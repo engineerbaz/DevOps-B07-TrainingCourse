@@ -19,12 +19,11 @@ Task 1 to 6 are *Must*, while 7 & 8 are optional
 Make a file named as ` Dockerfile ` and copy data as 
 
 ``` 
-FROM ubuntu 
+FROM nginx:latest
 MAINTAINER BAZTechKnow 
-
-RUN apt-get update 
-RUN apt-get install –y nginx 
-CMD [“echo”,”Image created”] 
+COPY . /usr/share/nginx/html
+# comment
+ENV abc=hello
 
 ```
 
