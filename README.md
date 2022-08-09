@@ -5,6 +5,9 @@ This repository is  Repo for Batch 07 of DevOps Course with Sherdil IT Academy
  
  
  
+ ## Learning Task
+ 
+ - [Task 01](https://github.com/engineerbaz/DevOps-B07-TrainingCourse/blob/main/learningTasks/Task01.md) 
  
 Good luck & enjoy studying! coffee
 Contributions of any kind are welcome! sparkles
