@@ -1,7 +1,7 @@
 # Learning Tasks
 
 ## Task 1
-*Good Day!*
+*Good Day!* 
 
 Here are some tasks for your learning & practice , You can complete and share working (snapshot or in text file).
 
