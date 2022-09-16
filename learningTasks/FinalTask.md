@@ -6,15 +6,17 @@ Here are some tasks for your learning & practice , You can complete and share wo
 
 Task 1 to 7 are *Must*, while 8 & 9 are optional
 
-1. Make Dockerfile for any of well-known image (i.e ``` Nginx, Busybox, alpine or etc ```)
-2. Make a cutomized Image for pinging your IP 
-3. Create a image of webpage of your choice ( you may upload on Dockerhub)
-4. Create 2 Network of Bridge Type named as `nw01` and `nw02`
-5. Make two different containers in two networks 
-6. Using image from _engineerbaz/dockerlabs_ create a container to show output
-7. Create a Volume and store current date from _conatainer01_ and access from _container02_  
-8. Get data from https://github.com/engineerbaz/DevOps-B07-TrainingCourse/blob/main/learningTasks/project-todoList.md and run as project
-9. Run following command in Docker 
+1. Run two Docker Containers using different menthods. 
+2. Make Dockerfile for any 2 of well-known image (i.e ``` Nginx, Busybox, alpine or etc ```)
+3. Make a cutomized Image for pinging IP (8.8.8.8) 
+4. Create 2 Network of Bridge Type named as `nw01` and `nw02` and communicate containers on both of them 
+5.   
+6. Create  
+7.  
+8.  Using image from _engineerbaz/dockerlabs_ create a container to show output
+9. Create a Volume and store current date from _conatainer01_ and access from _container02_  
+10. Get data from https://github.com/engineerbaz/DevOps-B07-TrainingCourse/blob/main/learningTasks/project-todoList.md and run as project
+11. Run following command in Docker 
 
 Make a file named as ` Dockerfile ` and copy data as 
 
