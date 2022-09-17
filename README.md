@@ -2,8 +2,8 @@
 
 This repository is  Repo for Batch 07 of DevOps Course with Sherdil IT Academy
 
- 
- 
+ - *Docker* 
+ - *Kubernetes*
  
  ## Learning Task
  
