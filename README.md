@@ -5,8 +5,10 @@ This repository is  Repo for Batch 07 of DevOps Course with Sherdil IT Academy
  - *Docker* 
  - *Kubernetes*
  
+ <p align="center">
+  <img src="https://github.com/engineerbaz/DevOps-B07-TrainingCourse/blob/main/Docker%20&%20Kubernetes%20Course.jpg" />
+</p>
  
- https://github.com/engineerbaz/DevOps-B07-TrainingCourse/blob/main/Docker%20&%20Kubernetes%20Course.jpg?raw=true
  
  ## Learning Task
  
