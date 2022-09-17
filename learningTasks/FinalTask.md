@@ -3,7 +3,7 @@
 *Good Day!* 
 
 Here is final test for revison of your learning & practice , You can complete and share working (snapshot or in text file).
-Attempt any 6
+Attempt any 5
 
 1. Run two Docker Containers using different menthods. 
 2. Make Dockerfile for any 2 of well-known image (i.e ``` Nginx, Busybox, alpine or etc ```) , run container and delete anyone.
