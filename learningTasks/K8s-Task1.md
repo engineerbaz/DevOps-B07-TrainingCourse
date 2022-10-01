@@ -16,4 +16,6 @@ Task 1 to 7 are *Must*, while 8 is optional
 7. Show all running resources.
 8. List down steps for installing either
    1. Kubernetes
-   2. Minikube
+   2. Minikube.
+
+
