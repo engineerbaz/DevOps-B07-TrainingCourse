@@ -15,9 +15,8 @@ This repository is  Repo for Batch 07 of DevOps Course with Sherdil IT Academy
  ### Kubernetes
  -----------------
  
- - [Task 01](https://github.com/engineerbaz/DevOps-B07-TrainingCourse/blob/main/learningTasks/Task01.md) 
+ - [Task 01](https://github.com/engineerbaz/DevOps-B07-TrainingCourse/blob/main/learningTasks/K8s-Task01.md) 
  
-
 
 
  ### Docker
