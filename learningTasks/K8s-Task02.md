@@ -8,3 +8,11 @@ Learning task
 4. Create a resource that prints current time.
 5. Make two deployment of **Nginx** and **httpd** 
 6. Expose a pod of nginx to **Port number 8080**
+
+
+
+## Important 
+Tasks to be done during the week 
+
+- Get YAML of Pod and mark comments aginst each line  
+ 
