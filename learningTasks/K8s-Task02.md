@@ -14,5 +14,5 @@ Learning task
 ## Important 
 Tasks to be done during the week 
 
-- Get YAML of Pod and mark comments aginst each line  
+- Get YAML of Pod and write comments aginst each line  
  
