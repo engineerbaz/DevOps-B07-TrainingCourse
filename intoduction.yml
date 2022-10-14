@@ -1,0 +1,34 @@
+# YAML Yet Ain't Markup Language (YAML)
+
+
+version: '2'
+services:
+  nginx:
+      build: ./nginx
+      links:
+          - django:django
+          - angular:angular
+      ports:
+          - "80:80"
+          - "8000:8000"
+          - "443:443"
+      networks:
+       - my_net
+  django:
+      build: ./django
+      expose:
+          - "8000"
+      networks:
+       - my_net
+  angular:
+      build: ./angular2
+      links:
+          - django:django
+      expose:
+          - "80"
+      networks:
+        - my_net
+networks:
+  my_net:
+    external:
+      name: my_net
