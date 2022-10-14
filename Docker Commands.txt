@@ -32,7 +32,7 @@ docker run --name=new2 -d -p 8500:80 engineerbaz/htmlfile:5
 
 docker pull tomcat:9.0
 docker run  tomcat:9.0
-docker run -it --rm -p 8888:8080 tomcat:9.0
+docker run -it --rm -p 8:8080 tomcat:9.0
 https://hub.docker.com/_/tomcat
  
 
@@ -43,4 +43,117 @@ docker run --name some-nginx  -d -p 8001:80 nginx
 docker pull mysql
 docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
 
+n
 
+----
+DOCKER NETWORK
+-----
+
+
+docker network ls
+docker network inspect bridge
+docker network create -d bridge my_bridge
+docker network connect my_bridge web
+docker run -d --net=my_bridge --name db training/postgres
+
+========
+
+---- LAB 1 ---
+
+FROM httpd:2.4
+COPY ./public-html /usr/local/apache2/htdocs/
+
+docker build -t 4lab .
+
+docker run -d --name myapp1 -p 8089:80 myimage:1
+docker ps
+curl localhost:8089	
+
+----LAB 2 ----
+
+FROM nginx:latest
+MAINTAINER BAZTechKnow 
+COPY . /usr/share/nginx/html
+# comment
+ENV abc=hello
+
+---
+docker build -t lab1 .
+docker run -dit -p 8081:80 lab1
+
+
+--- LAB 3 -----
+
+# Using official ubuntu image as a parent image
+FROM ubuntu:latest
+
+RUN apt-cache search nginx
+RUN apt-get upda
+te && apt-get install curl -y && apt-get install -y nginx
+CMD ["nginx", "-g", "daemon off;"]
+HEALTHCHECK cmd cCOPurl localhost:80
+
+
+
+ docker build -t 3lab .
+docker images 
+docker run -it 3lab
+
+
+-----
+
+-- my_Script.py 
+
+# Sample taken from pyStrich GitHub repository
+# https://github.com/mmulqueen/pyStrich
+from pystrich.datamatrix import DataMatrixEncoder
+
+encoder = DataMatrixEncoder('This is a DataMatrix.')
+encoder.save('./datamatrix_test.png')
+print(encoder.get_ascii())
+
+-- Dockerfile
+
+
+FROM python:3
+ADD my_script.py /
+RUN pip install pystrich
+CMD [ "python", "./my_script.py" ]
+
+
+---
+
+
+
+FROM nginx
+MAINTAINER BAZTechKnow 
+COPY . /usr/share/nginx/html
+# comment
+ENV abc=hello
+
+---
+docker build -t lab1 .
+docker run -dit -p 8081:80 lab1
+
+
+----
+docker login --username engineerbaz
+docker tag mypwdgen:2 engineerbaz/dockerlabs:v1
+docker push engineerbaz/dockerlabs:v1
+
+https://docs.docker.com/compose/gettingstarted/
+
+
+----
+docker login --username zeeshanmunir18
+ZEEmunir18
+
+docker build -t bazclock:1
+docker tag bazclock:1 zeeshanmunir18/bazprivate:44
+docker push zeeshanmunir18/bazprivate:44
+
+---
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose version
