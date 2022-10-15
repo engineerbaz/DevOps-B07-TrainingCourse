@@ -1,5 +1,5 @@
 # Kubernetes
-
+API Primitives LAB - YAML 
 
 ## Namespace
 Let find out
@@ -79,3 +79,23 @@ kubectl create deployment deployment-2-nginx-2 --image=nginx
 kubectl scale deployment deployment-2-nginx-2 --replicas=3
 ```
  
+## Services 
+
+```yaml
+kubectl run nginx --image=nginx
+kubectl expose pod nginx --port 80
+```
+`curl cluster_IP.141:80`
+
+`kubectl edit service nginx` type: NodePort
+
+```yaml 
+kubectl get node -o wide
+kubectl get all -o wide
+```
+
+On Browser >>> INTERNAL_IP:Port(NodePort)
+example >>> http://172.16.16.100:32732/
+
+
+
