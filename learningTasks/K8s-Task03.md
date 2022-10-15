@@ -9,11 +9,22 @@ Learning task
 - Write down the output of `kubectl get pods` for the kube-system namespace.
 - Delete the namespace
 
-task 2
-
+### Task 2
 
 - Create a namespace k8-lab2
 - Create a file called deploy.yaml that declares a deployment with name nginx-deploy in the recetly created namespace, with three replicas running the nginx:1.16 image. Each pod should have the label app=revproxy. The deployment can have the label client=user.
 - Create a new Deployment in the namespace with the below attributes using your own deployment definition file: `Name: httpd-fe; Replicas: 3; Image: httpd:2.4-alpine`
 - Delete the namespace created in the first step
+
+### Task 3
+
+- Create all the resources in the cka-lab6 ns and delete the ns after completion.
+(optional) 
+- How many Services exist on the system? and Check the Default kubernetes service and find out its service type
+- Identify the target port of the default kubernetes service 
+- Identify the labels on the default kubernetes service
+- How many Endpoints are attached on the 'kubernetes' service?
+
+- Create a deployment deploy-webapp using image `engineerbaz/htmlfile:5` having 3 replicas
+- Create a service using the following parameters : `Name: service-webapp; Type: NodePort; targetPort: 80; port: 80; nodePort: 30080; selector: simple-webapp` and Try to access the deployment using Node IP and port 30080
 
