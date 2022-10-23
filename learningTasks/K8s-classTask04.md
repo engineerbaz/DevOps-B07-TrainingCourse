@@ -1,3 +1,9 @@
+# Learning Tasks - Kubernetes
+
+## Task 4 - Class Task 
+*Good Day!* 
+
+Here are some tasks for your learning & practice , You can complete and share working (snapshot or in text file).
 
 
 1- Create atleast 2 resources in the "lab6" ns and delete after completion.
