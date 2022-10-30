@@ -17,6 +17,9 @@ This repository is  Repo for Batch 07 of DevOps Course with Sherdil IT Academy
  
  - [Task 01](https://github.com/engineerbaz/DevOps-B07-TrainingCourse/blob/main/learningTasks/K8s-Task01.md) 
  - [Task 02](https://github.com/engineerbaz/DevOps-B07-TrainingCourse/blob/main/learningTasks/K8s-Task02.md) 
+ - [Task 03](https://github.com/engineerbaz/DevOps-B07-TrainingCourse/blob/main/learningTasks/K8s-Task03.md) 
+ - [Task 04](https://github.com/engineerbaz/DevOps-B07-TrainingCourse/blob/main/learningTasks/K8s-classTask04.md) 
+ - [Task 05](https://github.com/engineerbaz/DevOps-B07-TrainingCourse/blob/main/learningTasks/K8s-classTask05.md)  
  
  
 
