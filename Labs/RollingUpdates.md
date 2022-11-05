@@ -42,8 +42,34 @@ kubectl rollout history deployment nginx-deployment --revision=1
 kubectl rollout undo deployment nginx-deployment --to-revision=1
 ```
 
+===
+kubectl create deployment nginx-deploy --image=nginx
+kubectl describe deployments.apps nginx-deploy | grep -i annotation
+kubectl scale deployment nginx-deploy --replicas=3
+
+kubectl rollout status deployment/nginx-deploy
+kubectl rollout history deployment/nginx-deploy
+
+kubectl describe deployments.apps nginx-deploy | grep -i container -A1
+kubectl set image deployment nginx-deploy nginx=nginx:1.7.1 --record=true
+kubectl set image deployment nginx-deploy nginx=nginx:1.9.1 --record=true
+kubectl describe deployments.apps nginx-deploy | grep -i annotation -A2
 
 
+Rolling Undo / Rolling Rollback
+================================
+kubectl rollout undo deployment/nginx-deploy 
+kubectl rollout history deployment.apps/nginx-deploy
+kubectl describe deployment nginx-deploy | grep -i image
+kubectl get deploy,rs
+
+Rolling Undo on the specific version
+======================================
+
+kubectl rollout undo deployment/nginx-deploy --to-revision=3
+kubectl describe deployment nginx-deploy | grep -i image -A2
+
+====
 
 
 
