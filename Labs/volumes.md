@@ -114,3 +114,32 @@ spec:
 ```
 
 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: volume-example
+spec:
+  volumes:
+  - name: html
+    emptyDir: {}
+  containers:
+  - name: nginx
+    image: nginx:stable-alpine
+    volumeMounts:
+    - name: html
+      mountPath: /usr/share/nginx/html
+      ReadOnly: true
+  - name: content
+    image: alpine:latest
+    command: ["/bin/sh", "-c"]
+    args:
+      - while true; do
+         date >> /html/index.html;
+         sleep 5;
+      done
+    volumeMounts:
+    - name: html
+      mountPath: /html
+
+
+
