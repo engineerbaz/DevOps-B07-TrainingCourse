@@ -135,15 +135,5 @@ THe end
 ----
 
 
-git clone https://github.com/thobalose/todo-list-app.git ; cd todo-list-app/
-npm install
-node app.js
-
-To build a docker image for the todo-list-app and run it inside a container execute
-
-docker build -t thoba/todo-list-app .
-The above with create an image with the latest tag. To run the container execute
-
-docker run -it -p 8080:8080 --name todo_list_app thoba/todo-list-app
 
 
