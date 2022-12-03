@@ -10,7 +10,7 @@ Here is final test for revison of your learning & practice , You can complete an
 
 1. Build resources as per given requirement on any infra On-prem, Minikube, On cloud, CSP or Playground
 
-2. Use name convention as Your Name + resource name  i.e bazPod1, bazCM or bazDeploy
+2. Use name convention as **Your Name + resource name**  i.e *bazPod1*, *bazCM* or *bazDeploy*
 
 3. Use values as per requirements until specified.
 
