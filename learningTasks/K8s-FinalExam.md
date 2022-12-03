@@ -4,7 +4,7 @@
 
 Here is final test for revison of your learning & practice , You can complete and share working
 
-!Kubernetes Final Exam](https://github.com/engineerbaz/DevOps-B07-TrainingCourse/blob/main/learningTasks/K8s-FinalExam.png)
+![Kubernetes Final Exam](https://github.com/engineerbaz/DevOps-B07-TrainingCourse/blob/main/learningTasks/K8s-FinalExam.png)
 
 ## Instructions
 
