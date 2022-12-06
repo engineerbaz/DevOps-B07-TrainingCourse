@@ -1,13 +1,4 @@
-test-baz
-Access key ID
-AKIA4P3SN37O3GDPWZ7B 
 
-
-Secret access key
-8NAAyycPkIhxzBvnkiv5rEcy/Nx+aUolwnVr9zcy
-
-Password
-E%c)xr9]alwvBys
 
 
 Root
