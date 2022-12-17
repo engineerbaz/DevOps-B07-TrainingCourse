@@ -1,0 +1,129 @@
+case-01: (Copy Module >> https://docs.ansible.com/ansible/2.9/modules/copy_module.html#copy-module)
+---------------------------------------------------------------------------------------------------
+
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+    - name: copy test.txt file
+      copy:
+        src: /root/projetcs/test.txt
+        dest: /tmp/test.txt
+
+
+
+case-02: (Files Module >> https://docs.ansible.com/ansible/2.9/modules/file_module.html#file-module)
+---------------------------------------------------------------------------------------------------
+
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+    - name: Create /tmp/testfile.txt      
+      file:
+        path: /tmp/testfile.txt
+        state: touch
+
+
+case-03: (Packaging Modules >> https://docs.ansible.com/ansible/2.9/modules/apt_module.html#apt-module)
+--------------------------------------------------------------------------------------------------------
+systemctl status apache2.service 
+
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+    - name: Install apache httpd
+      apt:
+        name: apache2
+        state: present
+
+
+
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+    - name: Uninstall apache httpd
+      apt:
+        name: apache2
+        state: absent
+
+
+case-04: (Command Modules >> https://docs.ansible.com/ansible/2.9/modules/list_of_commands_modules.html)
+--------------------------------------------------------------------------------------------------------
+
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+    - name: echo Welcome!
+        shell: 'echo "Welcome!" > /tmp/welcome.txt'
+
+
+case-05: (Archive & Un-Archive Modules >> https://docs.ansible.com/ansible/2.9/modules/archive_module.html#archive-module)
+--------------------------------------------------------------------------------------------------------------------------
+
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+     - name: Zip /root/project folder
+       archive:
+         path: /root/project/*
+         dest: /root/project.zip
+         format: zip
+
+
+case-06: (Archive & Un-Archive Modules >> https://docs.ansible.com/ansible/2.9/modules/archive_module.html#archive-module)
+--------------------------------------------------------------------------------------------------------------------------
+tar cvfzp project.zip projects/
+
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+     - name: extract project.zip to ansible-worker
+       unarchive:
+         src: /root/project.zip
+         dest: /tmp
+
+
+
+Case-07: debug Module (https://docs.ansible.com/ansible/2.9/reference_appendices/special_variables.html
+-------------------------------------------------------------------------------------------------------
+
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - debug:
+      var: ansible_facts
+
+ansible-playbook test1.yaml
+
+
