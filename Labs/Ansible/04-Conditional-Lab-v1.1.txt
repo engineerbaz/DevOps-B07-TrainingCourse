@@ -1,0 +1,100 @@
+ansibel> ansible demo -m setup  | grep distri
+
+Note:
+-----
+shell: /sbin/reboot now   >>>     command: /sbin/reboot now
+
+
+Single Playbooks
+----------------
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Shut down CentOS 6 systems
+    shell: /sbin/reboot now
+    when:
+      - ansible_facts['distribution'] == "CentOS"
+      - ansible_facts['distribution_major_version'] == "6"
+				
+			OR
+
+    when: 
+      ansible_facts['distribution'] == "CentOS" and
+      ansible_facts['distribution_major_version'] == "6"
+
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Shut down CentOS 7 systems
+    shell: /sbin/reboot now
+    when:
+      - ansible_facts['distribution'] == "CentOS"
+      - ansible_facts['distribution_major_version'] == "7"
+				
+			OR
+
+    when: 
+      ansible_facts['distribution'] == "CentOS" and
+      ansible_facts['distribution_major_version'] == "7"
+
+
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Shut down CentOS 6 systems
+    shell: /sbin/reboot now
+    when:
+      - ansible_facts['distribution'] == "Ubuntu"
+      - ansible_facts['distribution_major_version'] == "16.04"
+				
+			OR
+
+    when:
+      ansible_facts['distribution'] == "Ubuntu" and
+      ansible_facts['distribution_major_version'] == "16.04"
+
+
+Merging Playbooks
+-----------------
+
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Shut down CentOS 6 systems
+    shell: /sbin/reboot now
+    when:
+      - ansible_facts['distribution'] == "CentOS"
+      - ansible_facts['distribution_major_version'] == "6"
+
+  - name: Shut down CentOS 7 systems
+    shell: /sbin/reboot now
+    when:
+      - ansible_facts['distribution'] == "CentOS"
+      - ansible_facts['distribution_major_version'] == "7"
+
+  - name: Shut down CentOS 6 systems
+    shell: /sbin/reboot now
+    when:
+      - ansible_facts['distribution'] == "Ubuntu"
+      - ansible_facts['distribution_major_version'] == "16.04"
+
+
+
+
+
