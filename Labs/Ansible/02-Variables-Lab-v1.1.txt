@@ -1,0 +1,105 @@
+Note:
+------
+If you install pwgen then epel must be required on the client machine:
+
+sudo wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum install -y epel-release-latest-7.noarch.rpm
+
+
+Variable Dictionary
+===================
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  vars:
+    students:
+         - Mark:
+             city: Melbourne
+             address: 0045-0987-8642
+         - Angela:
+             city: Sydney
+             address: 3456-7685-9087
+  tasks:
+    - debug:
+        msg: "{{ students }}"
+
+ansible-playbook test1.yaml
+
+Register Variable
+=================
+
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+    - name: Ensure pwgen is installed
+      yum:
+         name: pwgen
+         state: present
+         update_cache: True
+
+    - name: Generate password
+      shell: pwgen -N 1 -s 30
+      register: mypass
+
+    - name: Print the generated password
+      debug:
+        msg: "The password is {{ mypass }}"
+
+ansible-playbook test1.yaml 
+
+
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+    - name: Ensure pwgen is installed
+      yum:
+         name: pwgen
+         state: present
+         update_cache: True
+
+    - name: Generate password
+      shell: pwgen -N 1 -s 30
+      register: mypass
+
+    - name: Print the generated password
+      debug:
+        msg: "The password is {{ mypass.stdout }}"
+ 
+ansible-playbook test1.yaml 
+
+
+
+List-Array Variable
+====================
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  vars:
+    students:
+      - Asad
+      - Ahmed
+      - Irfan
+
+  tasks:
+  - name: Ansible List variable Example
+    debug:
+      msg: "{{ students[2] }}"
+
+
+ansible-playbook test1.yaml
+
+
