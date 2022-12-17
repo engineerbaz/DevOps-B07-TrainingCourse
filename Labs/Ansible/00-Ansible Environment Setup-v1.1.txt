@@ -1,0 +1,110 @@
+# Ansible Installation 
+
+#1) Ansible-controller >> centos >> bridge-network & host-only-adapter >> set Static IP from GUI & hostname
+#2) Ansible-worker1 >> clone >> set Static IP from GUI & hostname
+#3) On All Ansible Server and Client Machines
+
+Here is the step by step procedure for installation this master piece.
+
+1. Install required packages 
+
+`yum install -y net-tools nano wget`
+
+2. Add user for ansible
+First add user by `useradd ansible`  and set password `passwd ansible` and edit `vi /etc/sudoers` or visudo
+
+Add following line at the end of file
+
+ansible        ALL=(ALL)       NOPASSWD: ALL
+
+Save & exit
+
+3. Install Ansible [On Ansible Server (Ansible User)]
+
+`sudo su - ansible
+sudo wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+`
+Where epel >> extra Packgage for Enterprise Linux
+
+```
+sudo yum install -y epel-release-latest-7.noarch.rpm
+sudo yum install -y ansible
+sudo ansible --version
+```
+
+4. Establish ssh connection for workers [On ansible-server (Ansible User)]
+
+`sudo nano /etc/ansible/hosts`
+
+[demo]
+172.16.16.201
+Save & exit
+
+`sudo nano /etc/ansible/ansible.cfg`
+
+Uncommit  >> inventory      = /etc/ansible/hosts 
+Uncommit  >> sudo_user      = root
+
+Save & exit
+
+```sudo cat /etc/ssh/sshd_config | grep -i PermitRootLogin
+sudo cat /etc/ssh/sshd_config | grep -i PasswordAuthentication```
+
+Then change setting in sshd_config
+
+`sudo nano /etc/ssh/sshd_config`
+
+Uncommit  >> PermitRootLogin yes
+Uncommit  >> PasswordAuthentication yes
+
+Save & exit
+
+Now its time to restart services 
+
+```sudo service sshd restart
+sudo service sshd status
+```
+
+Establish ssh connection on ansible-nodes (Ansible User)
+
+sudo nano /etc/ssh/sshd_config
+
+Uncommit  >> PermitRootLogin yes
+Uncommit  >> PasswordAuthentication yes
+
+Save & exit
+
+sudo service sshd restart
+sudo service sshd status
+
+5. Password less authentication for ansible user for accessing all worker nodes (ansible-server)
+
+```sudo su - ansible
+ssh-keygen
+
+cd .ssh
+ls -a
+
+ssh-copy-id ansible@172.16.16.201
+ssh 172.16.16.201
+```
+
+
+6) host patterns (ansible server) - Ansible User
+ 
+ansible all --list-hosts
+ansible demo --list-hosts
+ansible demo[0] --list-hosts
+ansible demo[1] --list-hosts
+ansible demo[0:1] --list-hosts
+
+
+Reference:
+---------
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#control-node-requirements
+
+
+
+cat /etc/redhat-release
+#lsb_release  -a
