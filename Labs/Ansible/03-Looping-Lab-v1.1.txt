@@ -1,0 +1,40 @@
+Add list of users:
+==================
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Add several users
+    user:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - testuser1
+      - testuser2
+
+
+-----------------------------------------------------------------------------------------------
+
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Add several users
+    user:
+      name: "{{ item.name }}" 
+      uid: "{{ item.uid }}"
+      state: present
+    with_items:
+     - name: testuser1
+       uid: 1002 
+     - name: testuser2
+       uid: 1003 
+
+----------------------------------------------------------------------------------------------
+
