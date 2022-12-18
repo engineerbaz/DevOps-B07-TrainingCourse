@@ -1,9 +1,4 @@
-Note:
-------
-If you install pwgen then epel must be required on the client machine:
-
-sudo wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-sudo yum install -y epel-release-latest-7.noarch.rpm
+# variable
 
 
 Variable Dictionary
@@ -17,10 +12,10 @@ Variable Dictionary
   vars:
     students:
          - Mark:
-             city: Melbourne
+             city: Karachi
              address: 0045-0987-8642
          - Angela:
-             city: Sydney
+             city: London
              address: 3456-7685-9087
   tasks:
     - debug:
@@ -103,3 +98,40 @@ List-Array Variable
 ansible-playbook test1.yaml
 
 
+---
+
+  - name: variable printing  
+    hosts: demo
+    vars:
+      user: jane
+      id: 262879
+      pwd: "shell@123"
+    tasks:
+      - name: print vars 
+        debug:
+          msg: "Pring Username {{user}} with ID {{id}}"
+      - name: "Create user from Var {{user}}"
+        user:
+          name: "{{user}}"
+          password: {{pwd}}
+          home: "/var/tmp/{{user}}"
+          uid: {{id}}
+          shell: "/sbin/nologin"
+          state: present
+
+
+---
+--- 
+
+--
+
+
+
+
+-----
+Note:
+------
+If you install pwgen then epel must be required on the client machine:
+
+sudo wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum install -y epel-release-latest-7.noarch.rpm
