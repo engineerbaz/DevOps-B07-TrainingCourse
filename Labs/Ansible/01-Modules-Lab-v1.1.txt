@@ -111,10 +111,10 @@ tar cvfzp project.zip projects/
 
 
 
-Case-07: debug Module (https://docs.ansible.com/ansible/2.9/reference_appendices/special_variables.html
+### Case-07: debug Module (https://docs.ansible.com/ansible/2.9/reference_appendices/special_variables.html
 -------------------------------------------------------------------------------------------------------
 
----
+```yaml
 - hosts: demo
   user: ansible
   become: yes
@@ -123,7 +123,38 @@ Case-07: debug Module (https://docs.ansible.com/ansible/2.9/reference_appendices
   tasks:
   - debug:
       var: ansible_facts
+ ```
 
 ansible-playbook test1.yaml
+
+
+### Case-08: Build Web page on HTTP Server 
+-------------------------------------------------------------------------------------------------------
+mkdir files
+echo "Our First webpage deployment via Ansible" > files/index.html
+
+
+---
+- name: deploy httpd server
+  hosts: all
+  become: yes
+  tasks:
+  - name: install httpd
+    dnf:
+      name: httpd
+      state: latest
+
+  - name: start & enabled httpd
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+
+  - name: copy index.html
+    copy:
+      src: files/index.html
+      dest: /var/www/html/
+
+
 
 
