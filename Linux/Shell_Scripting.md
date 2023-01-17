@@ -1,5 +1,5 @@
 
-
+```shell
 #!/bin/bash
 # Add two numeric value
 ((sum=25+35))
@@ -12,3 +12,8 @@ echo $sum
 echo -n " share number "
 read number
 echo $number
+
+
+
+
+```
