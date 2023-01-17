@@ -16,6 +16,14 @@ read number
 echo $number
 
 
+# Basics
+ls
+pwd
+echo -n "Please write folder name to be created "
+read dirname
+mkdir $dirname
+ls
+
 #  Conddition 
 
 
