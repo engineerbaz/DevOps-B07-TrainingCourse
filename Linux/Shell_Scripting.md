@@ -33,5 +33,16 @@ else
 echo "Number is less than 10."
 fi
 
+# date
+#!/bin/bash
+year=$(date +%Y)
+month=$(date +%B)
+day=$(date +%d)
+minute=$(date +%M)
+echo $date
+echo "Current Date is  $day-$month-$year"
+touch myfile-$year-$month-$day--$minute
+
+
 
 ```
