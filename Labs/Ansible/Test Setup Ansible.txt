@@ -1,0 +1,3 @@
+apt install -y python3-pip tree && mkdir -p /opt/kata-materials && cd /opt/kata-materials && git clone --depth 1 https://github.com/irixjp/katacoda-scenarios.git . && pip install virtualenv && virtualenv ansible && source /opt/kata-materials/ansible/bin/activate && cd tools && bash ./kata_setup.sh && cd ~/
+
+The Ansible environment for the exercise will be built in a virtualenv.
