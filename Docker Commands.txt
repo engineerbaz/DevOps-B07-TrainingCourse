@@ -18,7 +18,7 @@ docker kill container_name
 --
 docker run -d jpetazzo/clock
 docker run hello-world
---
+--docker
 
 docker container ls
 
@@ -45,6 +45,13 @@ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
 
 n
 
+
+----
+
+docker run --name mycontainer -d -i -t alpine /bin/sh
+
+docker exec -it mycontainer sh
+
 ----
 DOCKER NETWORK
 -----
@@ -55,6 +62,23 @@ docker network inspect bridge
 docker network create -d bridge my_bridge
 docker network connect my_bridge web
 docker run -d --net=my_bridge --name db training/postgres
+
+
+--
+
+
+
+docker network create --driver bridge my-bridge-net 
+or
+docker network create -d bridge my-bridge-net 
+docker run -d --network my-bridge-net nginx
+docker network create --driver=bridge mybridge
+docker run -itd --net=mybridge --name alpine1  alpine
+docker run -itd --net=mybridge --name alpine2  alpine
+
+
+docker attach alpine1
+ping alpine2 \ ping alpine1
 
 ========
 
@@ -88,7 +112,7 @@ docker run -dit -p 8081:80 lab1
 FROM ubuntu:latest
 
 RUN apt-cache search nginx
-RUN apt-get upda
+RUN apt-get update
 te && apt-get install curl -y && apt-get install -y nginx
 CMD ["nginx", "-g", "daemon off;"]
 HEALTHCHECK cmd cCOPurl localhost:80
